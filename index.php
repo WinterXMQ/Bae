@@ -13,7 +13,9 @@ class WMChartCallBackAPI {
      */
     public function valid() {
         $echoStr = $_GET["echostr"];    // 监测通过后用于返回, 便于微信平台判断
-        echo $echoStr;
+        if (this->CheckSignature()) {
+            echo $echoStr;
+        }
         exit;
     }
 
