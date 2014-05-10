@@ -4,6 +4,8 @@
     Version 1.0.0.1
 */
 define("TOKEN", "WinterXMQ");
+$wmCharObj = new WMChartCallBackAPI();
+$wmCharObj->valid();
 
 class WMChartCallBackAPI {
     /**
