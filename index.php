@@ -3,7 +3,7 @@
     WinterXMQ <WinterXMQ@gmail.com>
     Version 1.0.0.1
 */
-define("TOKEN", "WinterXMQ");
+define("TOKEN", "winterxmq");
 $wmCharObj = new WMChartCallBackAPI();
 $wmCharObj->valid();
 
