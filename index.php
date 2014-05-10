@@ -15,25 +15,27 @@ class WMChartCallBackAPI {
         $echoStr = $_GET["echostr"];    // 监测通过后用于返回, 便于微信平台判断
         if (this->CheckSignature()) {
             echo $echoStr;
+            exit;
         }
-        exit;
     }
 
-    public function CheckSignature() {
+    private function CheckSignature() {
         $signature = $_GET["signature"];
         $timestamp = $_GET["timestamp"];
-        $nonce = $_GET["nonce"];
+        $nonce = $_GET["nonce"];    
+                
         $token = TOKEN;
         $tmpArr = array($token, $timestamp, $nonce);
-        sort($tmpArr);
-        $tmpStr = implode($tmpArr);
-        $tmpStr = sha1($tmpStr);
-
-        if ($tmpStr == $signature) {
+        sort($tmpArr, SORT_STRING);
+        $tmpStr = implode( $tmpArr );
+        $tmpStr = sha1( $tmpStr );
+        
+        if( $tmpStr == $signature ){
             return true;
         } else {
             return false;
         }
+    }
     }
 }
 
